@@ -1,8 +1,8 @@
 // script.js
 
 // 1. Emoji/card values (each appears twice for matching)
-const numbers = ['1', '2', '3', '4', '5', '6', '7', '8'];
-let cardsArray = [...numbers, ...numbers]; // 8 pairs → 16 cards
+const emojis = ['🍕', '🍔', '🍟', '🌮', '🍣', '🍩', '🍎', '🍉'];
+let cardsArray = [...emojis, ...emojis]; // 8 pairs → 16 cards
 
 // 2. Shuffle the cards
 function shuffle(array) {
@@ -81,7 +81,6 @@ function checkForMatch() {
       card2.classList.remove('flipped');
       flippedCards = [];
     }, 800);
-    
   }
 }
 
@@ -91,15 +90,6 @@ document.getElementById('restartBtn').addEventListener('click', () => {
   flippedCards = [];
   createBoard();
 });
-
-let moveCount = 0;
-const moveCounter = document.createElement('p');
-moveCounter.className = "mb-4 text-gray-700";
-document.body.insertBefore(moveCounter, gameBoard);
-
-function updateMoveCounter() {
-  moveCounter.textContent = `Moves: ${moveCount}`;
-}
 
 // 9. Start the game
 createBoard();
