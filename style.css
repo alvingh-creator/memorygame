@@ -27,12 +27,12 @@
 }
 
 .card-front {
-  background-color: #3b82f6; /* blue-500 */
+  background-color: #3b82f6; 
   color: white;
 }
 
 .card-back {
-  background-color: #f3f4f6; /* gray-100 */
+  background-color: #f3f4f6; 
   transform: rotateY(180deg);
 }
 

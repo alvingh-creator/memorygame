@@ -1,28 +1,24 @@
-// script.js
 
-// 1. Emoji/card values (each appears twice for matching)
 const emojis = ['🍕', '🍔', '🍟', '🌮', '🍣', '🍩', '🍎', '🍉'];
-let cardsArray = [...emojis, ...emojis]; // 8 pairs → 16 cards
-
-// 2. Shuffle the cards
+let cardsArray = [...emojis, ...emojis]; // 8 
 function shuffle(array) {
   return array.sort(() => Math.random() - 0.5);
 }
 
-// 3. Select the game board
+
 const gameBoard = document.getElementById('gameBoard');
 
-// 4. Game state variables
+
 let flippedCards = [];
 let matchedPairs = 0;
 
-// 5. Create and display cards
+
 function createBoard() {
   gameBoard.innerHTML = ''; // Clear board
   const shuffled = shuffle(cardsArray);
 
   shuffled.forEach((emoji) => {
-    // Create elements
+   
     const card = document.createElement('div');
     card.className = 'card w-20 h-24';
     card.setAttribute('data-name', emoji);
@@ -37,18 +33,17 @@ function createBoard() {
     back.className = 'card-back';
     back.textContent = emoji;
 
-    // Build card structure
+    
     inner.appendChild(front);
     inner.appendChild(back);
     card.appendChild(inner);
     gameBoard.appendChild(card);
 
-    // Click handler
     card.addEventListener('click', () => flipCard(card));
   });
 }
 
-// 6. Handle flipping
+
 function flipCard(card) {
   if (flippedCards.length >= 2 || card.classList.contains('matched') || card.classList.contains('flipped')) return;
 
@@ -60,7 +55,7 @@ function flipCard(card) {
   }
 }
 
-// 7. Match logic
+
 function checkForMatch() {
   const [card1, card2] = flippedCards;
   const isMatch = card1.dataset.name === card2.dataset.name;
@@ -84,12 +79,12 @@ function checkForMatch() {
   }
 }
 
-// 8. Restart game
+
 document.getElementById('restartBtn').addEventListener('click', () => {
   matchedPairs = 0;
   flippedCards = [];
   createBoard();
 });
 
-// 9. Start the game
+
 createBoard();
