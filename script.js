@@ -1,7 +1,7 @@
 // script.js
 
 // 1. Emoji/card values (each appears twice for matching)
-const numbers = [' ', '2', '3', '4', '5', '6', '7', '8'];
+const numbers = ['1', '2', '3', '4', '5', '6', '7', '8'];
 let cardsArray = [...numbers, ...numbers]; // 8 pairs → 16 cards
 
 // 2. Shuffle the cards
